@@ -1,0 +1,8 @@
+<p>Pedidos Listos Para entregar</p>
+<div>
+    <ul>
+        @for (orden of ordenesTerminadas; track $index) {
+            <li>({{orden.number}}) - {{orden.name}} <button (click)="toDeliver(orden,$index)">Entregar!</button></li>
+        }
+    </ul>
+</div>

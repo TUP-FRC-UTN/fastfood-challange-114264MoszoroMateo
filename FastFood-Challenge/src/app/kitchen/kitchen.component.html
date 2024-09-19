@@ -1,0 +1,31 @@
+<H3>Componente Cocina</H3>
+<div>
+    <h4>Pendiente de Cocinar</h4>
+    <ul>
+        @if (ordenes.length===0) {
+            <p>No hay ordenes para realizar</p>
+        }
+        @else {
+            @for (order of ordenes; track $index) {
+                @if (!cooking) {
+                    <li> ({{order.number}}) - {{order.description}} <button (click)="toCook(order,$index)">Cocinar</button></li>
+                }@else {
+                    <li> ({{order.number}}) - {{order.description}} <button (click)="toCook(order,$index)" disabled>Cocinar</button></li>
+                }
+            }
+        }
+
+    </ul>
+</div>
+<div>
+    <h4>Pedidos en Coccion</h4>
+    <ul>
+        @if (cookingOrder.number===0) {
+            <p>No hay Pedidos en Camino!</p>
+        }@else{
+            <li>({{cookingOrder.number}}){{cookingOrder.name}} - {{cookingOrder.description}}</li>
+        }
+        
+    </ul>
+    <button *ngIf="cookingOrder.number!==0" (click)="toFinish()">Pedido Terminado!</button>
+</div>

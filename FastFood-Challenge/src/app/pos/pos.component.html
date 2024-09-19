@@ -1,0 +1,14 @@
+<div>
+    <h3>Componente Point Of Sell - POS</h3>
+    <form #form="ngForm" (ngSubmit)="generateOrder()">
+        <div>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" id="nombre" #nombre="ngModel" [(ngModel)]="order.name" required>
+        </div>
+        <div>
+            <label for="pedido">Pedido: </label>
+            <input type="text" name="pedido" id="pedido" #pedido="ngModel" [(ngModel)]="order.description" required>
+        </div>
+        <button>Ordenar!</button>
+    </form>
+</div>

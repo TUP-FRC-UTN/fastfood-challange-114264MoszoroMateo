@@ -1,0 +1,13 @@
+<H1>Restaurant FastFood</H1>
+<div>
+    <label>Ultimos 2 pedidos Ingresados</label>
+    <div>
+        @if (lastOrders.length===0) {}
+        @else {
+            <p>{{lastOrders|json}}</p>
+        }
+    </div>
+</div>
+<app-delivery-point></app-delivery-point>
+<app-pos (newOrder)="nuevaOrden($event)"></app-pos>
+<app-kitchen></app-kitchen>
